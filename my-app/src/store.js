@@ -1,4 +1,9 @@
-import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
+import {
+	applyMiddleware,
+	combineReducers,
+	compose,
+	legacy_createStore as createStore,
+} from 'redux';
 import thunk from 'redux-thunk';
 import { todosReducer, editingTodoReducer, optionsReducer } from './reducers';
 
