@@ -1,6 +1,6 @@
 import { HTTP_METHOD } from '../constants';
 
-const fetchServer = (method, { id, ...payload } = {}) => {
+const fetchServer = async (method, { id, ...payload } = {}) => {
 	let url = `http://localhost:8204/todos`;
 	let options = {
 		method,
@@ -23,7 +23,8 @@ const fetchServer = (method, { id, ...payload } = {}) => {
 		}
 	}
 
-	return fetch(url, options).then((jsonData) => jsonData.json());
+	const jsonData = await fetch(url, options);
+	return await jsonData.json();
 };
 
 export const createTodo = (newTodo) => fetchServer('POST', newTodo);
